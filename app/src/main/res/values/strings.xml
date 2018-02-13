@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PhotoAnnotation</string>
+    <string name="take_image">Take Image</string>
+    <string name="continue_next_activity">Continue</string>
+    <string name="draw">Draw</string>
+    <string name="erase">Erase</string>
+    <string name="clear_annotations">Clear</string>
+</resources>
