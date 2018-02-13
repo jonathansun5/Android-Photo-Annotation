@@ -3,9 +3,6 @@ package com.example.jonathansun5.photoannotation;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
@@ -13,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,34 +46,14 @@ public class MainActivity extends AppCompatActivity {
             imageBitmap = (Bitmap)extras.get("data");
             iView = (ImageView)findViewById(R.id.imageView);
             iView.setImageBitmap(imageBitmap);
-//            ByteArrayOutputStream bsa = new ByteArrayOutputStream();
-//            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, bsa);
-//            Bitmap decoded = BitmapFactory.decodeStream(new ByteArrayInputStream(bsa.toByteArray()));
-////            Bitmap imageBitmap = BitmapFactory.decodeByteArray(getIntent().getByteArrayExtra("byteArray"),0,getIntent().getByteArrayExtra("byteArray").length);
-//            iView = findViewById(R.id.imageView);
-//            Drawable drawable = new BitmapDrawable(getResources(), decoded);
-//
-//            iView.setImageDrawable(drawable);
-////            iView.setImageBitmap(imageBitmap);
         }
     }
 
     public void onContinueClick(View view) {
-//        Intent intent = new Intent(this, Main2Activity.class);
-//        intent.putExtra("resId", imageBitmap);
-//        startActivity(intent);
-
         Intent i = new Intent(this, Main2Activity.class);
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, bs);
         i.putExtra("byteArray", bs.toByteArray());
         startActivity(i);
-
-
-//        Intent intent = new Intent(this, Main2Activity.class);
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("resId", imageBitmap);
-//        intent.putExtras(bundle);
-//        startActivity(intent);
     }
 }
